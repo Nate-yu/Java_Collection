@@ -1,0 +1,67 @@
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Set;
+
+/**
+ * @author Nate yu
+ * @date 2020/2/20 - 9:41
+ */
+public class HashMapDemo {
+    public static void main(String[] args) {
+        HashMap<String,String> map = new HashMap<String, String>();
+        // 键不能重复，值可以重复
+        map.put("san", "张三");
+        map.put("si", "李四");
+        map.put("wu", "王五");
+        map.put("wang", "老王");
+        map.put("wang", "老王2");// 老王被覆盖
+        map.put("lao", "老王");
+        System.out.println("-------直接输出hashmap:-------");
+        System.out.println(map);
+
+        /*遍历HashMap*/
+        // 获取Map中的所有键
+        System.out.println("-------foreach获取Map中所有的键:------");
+        Set<String> keys = map.keySet();
+        for (String key:keys){
+            System.out.print(key+" ");
+        }
+        System.out.println();
+
+        // 获取Map中的所有值
+        System.out.println("-------foreach获取Map中所有的值:------");
+        Collection<String> values = map.values();
+        for (String value:values){
+            System.out.print(value+" ");
+        }
+        System.out.println();
+
+        // 得到key的值的同时得到key所对应的值
+        System.out.println("-------得到key的值的同时得到key所对应的值:-------");
+        Set<String> keys2 = map.keySet();
+        for (String key:keys2){
+            System.out.print(key+"："+map.get(key)+" ");
+        }
+        System.out.println();
+
+        /*另外一中不常用的遍历方式*/
+        /*当调用put(key,value)方法的时候，首先会把key和value封装到Entry这个静态内部类对象中，
+        把Entry对象再添加到数组中，所以我们想获取map中的所有键值对，我们只要获取数组中的所有Entry对象，
+        接下来调用Entry对象中的getKey()和getValue()方法就能获取键值对了*/
+        Set<java.util.Map.Entry<String ,String>> entrys = map.entrySet();
+        for (java.util.Map.Entry<String,String> entry : entrys){
+            System.out.println(entry.getKey()+"--"+entry.getValue());
+        }
+
+        /*HashMap其他常用方法*/
+        System.out.println("Map 的大小："+map.size());
+        System.out.println("判断Map是否为空："+map.isEmpty());
+        System.out.println(map.remove("san"));
+        System.out.println("删除san这个键后的Map："+map);
+        System.out.println("获取si这个键对应的值："+map.get("si"));
+        System.out.println("判断是否存在si这个键："+map.containsKey("si"));
+        System.out.println("判断是否存在李四这个值："+map.containsValue("李四"));
+        System.out.println(map.replace("si","李四2"));
+        System.out.println("插入新键值后的map："+map);
+    }
+}
