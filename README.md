@@ -4,3 +4,5 @@
 [LinkedList基本操作](https://github.com/Nate-yu/Java_Collection/blob/master/src/LinkedListDemo.java)
 
 [HashMap基本操作](https://github.com/Nate-yu/Java_Collection/blob/master/src/HashMapDemo.java)
+
+[Set集合的基本操作](https://github.com/Nate-yu/Java_Collection/blob/master/src/SetDemo.java)
